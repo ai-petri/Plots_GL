@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plots</title>
+    <style>
+        canvas
+        {
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            translate: -50%;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <script src="drawFunction.js"></script>
+    <script src="drawDerivative.js"></script>
+    <script>
+        const canvas = document.createElement("canvas");
+        canvas.width = 500;
+        canvas.height = 500;
+
+        const gl = canvas.getContext("webgl");
+        const f = x => x*x*x;
+        drawFunction(gl, f, -5, 5, -5, 5);
+        drawDerivative(gl, f, -5, 5, -5, 5);
+
+        document.body.append(canvas);
+
+
+    </script>
+</body>
+</html>
